@@ -1,213 +1,169 @@
 # HyperExecute Pytest Appium ![pw](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
 
-<p align="center">
-<img height="500" src="https://user-images.githubusercontent.com/95698164/171858189-9de5d3ef-f177-49ac-9de6-6edb3441740b.png">
-</p>
 
-<p align="center">
-  <a href="https://www.lambdatest.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python-pytest" target="_bank">Blog</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/support/docs/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python-pytest" target="_bank">Docs</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/learning-hub/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python-pytest" target="_bank">Learning Hub</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/newsletter/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python-pytest" target="_bank">Newsletter</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/certifications/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python-pytest" target="_bank">Certifications</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.youtube.com/c/LambdaTest" target="_bank">YouTube</a>
-</p>
-&emsp;
-&emsp;
-&emsp;
+HyperExecute is a smart test orchestration platform to run end-to-end Selenium tests at the fastest speed possible. HyperExecute lets you achieve an accelerated time to market by providing a test infrastructure that offers optimal speed, test orchestration, and detailed execution logs.
 
-_Appium is a tool for automating native, mobile web, and hybrid applications on iOS, Android, and Windows platforms. It supports iOS native apps written in Objective-C or Swift and Android native apps written in Java or Kotlin. It also supports mobile web apps accessed using a mobile browser (Appium supports Safari on iOS and Chrome or the built-in 'Browser' app on Android). Perform Appium automation tests on [LambdaTest's online cloud](https://www.lambdatest.com/appium-mobile-testing?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python-pytest)._
+The overall experience helps teams test code and fix issues at a much faster pace. HyperExecute is configured using a YAML file. Instead of moving the Hub close to you, HyperExecute brings the test scripts close to the Hub!
 
-_Learn the basics of [Appium testing on the LambdaTest platform](https://www.lambdatest.com/support/docs/getting-started-with-appium-testing/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python-pytest)._
+* <b>HyperExecute HomePage</b>: https://www.lambdatest.com/hyperexecute
+* <b>Lambdatest HomePage</b>: https://www.lambdatest.com
+* <b>LambdaTest Support</b>: [support@lambdatest.com](mailto:support@lambdatest.com)
 
-[<img height="53" width="200" src="https://user-images.githubusercontent.com/70570645/171866795-52c11b49-0728-4229-b073-4b704209ddde.png">](https://accounts.lambdatest.com/register?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python)
+To know more about how HyperExecute does intelligent Test Orchestration, do check out [HyperExecute Getting Started Guide](https://www.lambdatest.com/support/docs/getting-started-with-hyperexecute/)
 
-## Table of Contents
 
-- [Pre-requisites](#pre-requisites)
-- [Run Your First Test](#run-your-first-test)
-- [Executing The Tests](#executing-the-tests)
+## Gitpod
 
-## Pre-requisites
+Follow the below steps to run Gitpod button:
 
-Before you can start performing App automation testing with Appium, you would need to follow these steps:
+1. Click '**Open in Gitpod**' button (You will be redirected to Login/Signup page).
+2. Login with Lambdatest credentials and it will be redirected to Gitpod editor in new tab and current tab will show hyperexecute dashboard.
 
-- Install the latest Python build from the [official website](https://www.python.org/downloads/). We recommend using the latest version.
-- Make sure **pip** is installed in your system. You can install **pip** from [here](https://pip.pypa.io/en/stable/installation/).
-- Install pytest on your system with following pip command:
+<!---If logged in, it will be redirected to Gitpod editor in new tab where current tab will show hyperexecute dashboard.
 
-```bash
-pip install pytest
-```
+If not logged in, it will be redirected to Login/Signup page and simultaneously redirected to Gitpod editor in a new tab where current tab will show hyperexecute dashboard.
 
-### Clone The Sample Project
+If not signed up, you need to sign up and simultaneously redirected to Gitpod in a new tab where current tab will show hyperexecute dashboard.--->
 
-Clone the LambdaTest’s [LT-appium-python-pytest](https://github.com/LambdaTest/LT-appium-python-pytest) and navigate to the code directory as shown below:
 
-```bash
-git clone https://github.com/LambdaTest/LT-appium-python-pytest
-cd LT-appium-python-pytest
-```
 
-### Setting Up Your Authentication
+# How to run mobile appium automation tests on HyperExecute (using Python pytest)
 
-Make sure you have your LambdaTest credentials with you to run test automation scripts on LambdaTest. To obtain your access credentials, [purchase a plan](https://billing.lambdatest.com/billing/plans?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python-pytest) or access the [Automation Dashboard](https://appautomation.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python-pytest).
+* [Pre-requisites](#pre-requisites)
+   - [Download HyperExecute CLI](#download-hyperexecute-cli)
+   - [Configure Environment Variables](#configure-environment-variables)
 
-Set LambdaTest `Username` and `Access Key` in environment variables.
+* [Auto-Split Execution with Cucumber](#auto-split-execution-with-cucumber)
+   - [Core](#core)
+   - [Pre Steps and Dependency Caching](#pre-steps-and-dependency-caching)
+   - [Post Steps](#post-steps)
+   - [Artifacts Management](#artifacts-management)
+   - [Test Execution](#test-execution)
 
-**For Linux/macOS:**
+* [Matrix Execution with Cucumber](#matrix-execution-with-cucumber)
+   - [Core](#core-1)
+   - [Pre Steps and Dependency Caching](#pre-steps-and-dependency-caching-1)
+   - [Post Steps](#post-steps-1)
+   - [Artifacts Management](#artifacts-management-1)
+   - [Test Execution](#test-execution-1)
 
-```bash
-export LT_USERNAME=YOUR_LAMBDATEST_USERNAME \
-export LT_ACCESS_KEY=YOUR_LAMBDATEST_ACCESS_KEY
-```
+* [Secrets Management](#secrets-management)
+* [Navigation in Automation Dashboard](#navigation-in-automation-dashboard)
 
-**For Windows:**
+# Pre-requisites
 
-```powershell
-set LT_USERNAME=YOUR_LAMBDATEST_USERNAME `
-set LT_ACCESS_KEY=YOUR_LAMBDATEST_ACCESS_KEY
-```
+Before using HyperExecute, you have to download HyperExecute CLI corresponding to the host OS. Along with it, you also need to export the environment variables *LT_USERNAME* and *LT_ACCESS_KEY* that are available in the [LambdaTest Profile](https://accounts.lambdatest.com/detail/profile) page.
 
-### Upload Your Application
+## Download HyperExecute CLI
 
-**Step-3:** Upload your **_iOS_** application (.ipa file) or **_android_** application (.apk file) to the LambdaTest servers using our **REST API**. You need to provide your **Username** and **AccessKey** in the format `Username:AccessKey` in the **cURL** command for authentication. Make sure to add the path of the **appFile** in the cURL request. Here is an example cURL request to upload your app using our REST API:
+HyperExecute CLI is the CLI for interacting and running the tests on the HyperExecute Grid. The CLI provides a host of other useful features that accelerate test execution. In order to trigger tests using the CLI, you need to download the HyperExecute CLI binary corresponding to the platform (or OS) from where the tests are triggered:
 
-**Using App File:**
+Also, it is recommended to download the binary in the project's parent directory. Shown below is the location from where you can download the HyperExecute CLI binary:
 
-**Linux/macOS:**
+* Mac: https://downloads.lambdatest.com/hyperexecute/darwin/hyperexecute
+* Linux: https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute
+* Windows: https://downloads.lambdatest.com/hyperexecute/windows/hyperexecute.exe
+
+## Configure Environment Variables
+
+Before the tests are run, please set the environment variables LT_USERNAME & LT_ACCESS_KEY from the terminal. The account details are available on your [LambdaTest Profile](https://accounts.lambdatest.com/detail/profile) page.
+
+For macOS:
 
 ```bash
-curl -u "YOUR_LAMBDATEST_USERNAME:YOUR_LAMBDATEST_ACCESS_KEY" \
---location --request POST 'https://manual-api.lambdatest.com/app/upload/realDevice' \
---form 'name="Android_App"' \
---form 'appFile=@"/Users/macuser/Downloads/proverbial_android.apk"'
+export LT_USERNAME=LT_USERNAME
+export LT_ACCESS_KEY=LT_ACCESS_KEY
 ```
 
-**Windows:**
-
-```powershell
-curl -u "YOUR_LAMBDATEST_USERNAME:YOUR_LAMBDATEST_ACCESS_KEY" -X POST "https://manual-api.lambdatest.com/app/upload/realDevice" -F "appFile=@"/Users/macuser/Downloads/proverbial_android.apk""
-```
-
-**Using App URL:**
-
-**Linux/macOS:**
+For Linux:
 
 ```bash
-curl -u "YOUR_LAMBDATEST_USERNAME:YOUR_LAMBDATEST_ACCESS_KEY" \
---location --request POST 'https://manual-api.lambdatest.com/app/upload/realDevice' \
---form 'name="Android_App"' \
---form 'url="https://prod-mobile-artefacts.lambdatest.com/assets/docs/proverbial_android.apk"'
+export LT_USERNAME=LT_USERNAME
+export LT_ACCESS_KEY=LT_ACCESS_KEY
 ```
 
-**For Windows:**
-
-```powershell
-curl -u "YOUR_LAMBDATEST_USERNAME:YOUR_LAMBDATEST_ACCESS_KEY" -X POST "https://manual-api.lambdatest.com/app/upload/realDevice" -d "{"url":"https://prod-mobile-artefacts.lambdatest.com/assets/docs/proverbial_android.apk","name":"sample.apk"}"
-```
-
-**Tip:**
-
-- If you do not have any **.apk** or **.ipa** file, you can run your sample tests on LambdaTest by using our sample :link: [Android app](https://prod-mobile-artefacts.lambdatest.com/assets/docs/proverbial_android.apk) or sample :link: [iOS app](https://prod-mobile-artefacts.lambdatest.com/assets/docs/proverbial_ios.ipa).
-- Response of above cURL will be a **JSON** object containing the `App URL` of the format - <lt://APP123456789123456789> and will be used in the next step.
-
-## Run Your First Test
-
-Once you are done with the above-mentioned steps, you can initiate your first Python test on LambdaTest.
-
-**Test Scenario:** Check out [conftest.py](https://github.com/LambdaTest/LT-appium-python-pytest/blob/master/conftest.py) file to view the sample test script for android and [ios.py](https://github.com/LambdaTest/LT-appium-python-pytest/blob/master/ios.py) for iOS.
-
-### Configuring Your Test Capabilities
-
-You can update your custom capabilities in test scripts. In this sample project, we are passing platform name, platform version, device name and app url (generated earlier) along with other capabilities like build name and test name via capabilities object. The capabilities object in the sample code are defined as:
-
-**iOS:**
-
-```python title="iOS(.ipa)"
-    caps = {}
-    caps["deviceName"] = "iPhone 11"
-    caps["platformName"] = "iOS"
-    caps["platformVersion"] = "14"
-    caps["app"] = "lt://proverbial-ios"     #Enter the app (.ipa) url here
-    caps["isRealMobile"] = True
-    caps['build'] = build
-    caps['name'] = test_name
-    caps['project'] = project_name
-```
-**Android:**
-
-```python title="Android(.apk)"
-    caps = {}
-    caps["deviceName"] = "Galaxy S21 5G"
-    caps["platformName"] = "Android"
-    caps["platformVersion"] = "11"
-    caps["app"] = "lt://proverbial-android"   #Enter the app (.apk) url here
-    caps["isRealMobile"] = True
-    caps['build'] = build
-    caps['name'] = test_name
-    caps['project'] = project_name
-```
-
-**Info Note:**
-
-- You must add the generated **APP_URL** to the `"app"` capability in the config file.
-- You can generate capabilities for your test requirements with the help of our inbuilt **[Capabilities Generator tool](https://www.lambdatest.com/capabilities-generator/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python-pytest)**. A more Detailed Capability Guide is available [here](https://www.lambdatest.com/support/docs/desired-capabilities-in-appium/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python-pytest).
-
-## Executing The Tests
-
-- Install the dependencies with the following command.
+For Windows:
 
 ```bash
-pip install -r requirements.txt
+set LT_USERNAME=LT_USERNAME
+set LT_ACCESS_KEY=LT_ACCESS_KEY
 ```
 
-- Go to the **tests** directory and run the following command to execute the tests. 
+## Auto-Split Execution with Cucumber
 
-**Android:**
+Auto-split execution mechanism lets you run tests at predefined concurrency and distribute the tests over the available infrastructure. Concurrency can be achieved at different levels - file, module, test suite, test, scenario, etc.
+
+For more information about auto-split execution, check out the [Auto-Split Getting Started Guide](https://www.lambdatest.com/support/docs/getting-started-with-hyperexecute/#smart-auto-test-splitting)
+
+### Core
+
+Auto-split YAML file (*yaml/win/cucumber_hyperexecute_autosplit_sample.yaml*) in the repo contains the following configuration:
+
+```yaml
+globalTimeout: 150
+testSuiteTimeout: 150
+testSuiteStep: 150
+```
+
+Global timeout, testSuite timeout, and testSuite timeout are set to 150 minutes.
+ 
+The *runson* key determines the platform (or operating system) on which the tests are executed. Here we have set the target OS as Windows.
+
+```yaml
+runson: linux
+```
+
+Auto-split is set to true in the YAML file.
+
+```yaml
+ autosplit: true
+```
+
+*retryOnFailure* is set to true, instructing HyperExecute to retry failed command(s). The retry operation is carried out till the number of retries mentioned in *maxRetries* are exhausted or the command execution results in a *Pass*. In addition, the concurrency (i.e. number of parallel sessions) is set to 4.
+
+```yaml
+retryOnFailure: true
+maxRetries: 2
+concurrency: 2
+```
+
+Steps (or commands) that must run before the test execution are listed in the *pre* run step.
+
+```yaml
+pre:
+  - pip3 install -r requirements.txt
+```
+
+The *testDiscovery* directive contains the command that gives details of the mode of execution, along with detailing the command that is used for test execution. Here, we are fetching the list of class names that would be further passed in the *testRunnerCommand*
+
+```yaml
+testDiscovery:
+  type: raw
+  mode: static
+  command: grep -nri 'class' tests -ir --include=\*.py | sed 's/:.*//'
+```
+
+The *testRunnerCommand* contains the command that is used for triggering the test. The output fetched from the *testDiscoverer* command acts as an input to the *testRunner* command.
+
+```yaml
+testRunnerCommand: python3 -m pytest
+```
+
+
+### Test Execution
+
+The CLI option *--config* is used for providing the custom HyperExecute YAML file (i.e. *--config hyperExecute_autosplit.yaml* 
+
+#### Execute tests using Autosplit mechanism.
+
+Run the following command on the terminal to trigger Cucumber tests on the Windows platform. 
 
 ```bash
-pytest test.py
-```
-
-**IOS:**
-
-```bash
-pytest test_ios.py
-```
-
-**Info Note:**
-If you are unable to run the automation script with the above mentioned commands try using `python -m` before the given commands.
-
-> Your test results would be displayed on the test console (or command-line interface if you are using terminal/cmd) and on the [LambdaTest App Automation Dashboard](https://appautomation.lambdatest.com/build?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python-pytest).
-
-> If you fail to run the tests, try creating virtual env and installing the dependencies in that environment to run the tests.
-> Creating and activating a virtual environment
+./hyperexecute --config hyperExecute_autosplit.yaml
 
 ```
-pip3 install virtualenv
-virtualenv venv
-source venv/bin/activate
-```
+Visit [HyperExecute Automation Dashboard](https://automation.lambdatest.com/hyperexecute) to check the status of execution
 
-## Additional Links
-
-- [Advanced Configuration for Capabilities](https://www.lambdatest.com/support/docs/desired-capabilities-in-appium/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python)
-- [How to test locally hosted apps](https://www.lambdatest.com/support/docs/testing-locally-hosted-pages/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python)
-- [How to integrate LambdaTest with CI/CD](https://www.lambdatest.com/support/docs/integrations-with-ci-cd-tools/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python)
-
-## Documentation & Resources :books:
-
-Visit the following links to learn more about LambdaTest's features, setup and tutorials around test automation, mobile app testing, responsive testing, and manual testing.
-
-- [LambdaTest Documentation](https://www.lambdatest.com/support/docs/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python)
-- [LambdaTest Blog](https://www.lambdatest.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python)
-- [LambdaTest Learning Hub](https://www.lambdatest.com/learning-hub/?utm_source=github&utm_medium=repo&utm_campaign=LT-appium-python)
 
 ## LambdaTest Community :busts_in_silhouette:
 

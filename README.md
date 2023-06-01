@@ -33,19 +33,13 @@ If not signed up, you need to sign up and simultaneously redirected to Gitpod in
    - [Download HyperExecute CLI](#download-hyperexecute-cli)
    - [Configure Environment Variables](#configure-environment-variables)
 
-* [Auto-Split Execution with Cucumber](#auto-split-execution-with-cucumber)
+* [Auto-Split Execution with Pytest](#auto-split-execution-with-Pytest)
    - [Core](#core)
    - [Pre Steps and Dependency Caching](#pre-steps-and-dependency-caching)
    - [Post Steps](#post-steps)
    - [Artifacts Management](#artifacts-management)
    - [Test Execution](#test-execution)
 
-* [Matrix Execution with Cucumber](#matrix-execution-with-cucumber)
-   - [Core](#core-1)
-   - [Pre Steps and Dependency Caching](#pre-steps-and-dependency-caching-1)
-   - [Post Steps](#post-steps-1)
-   - [Artifacts Management](#artifacts-management-1)
-   - [Test Execution](#test-execution-1)
 
 * [Secrets Management](#secrets-management)
 * [Navigation in Automation Dashboard](#navigation-in-automation-dashboard)
@@ -89,7 +83,7 @@ set LT_USERNAME=LT_USERNAME
 set LT_ACCESS_KEY=LT_ACCESS_KEY
 ```
 
-## Auto-Split Execution with Cucumber
+## Auto-Split Execution with Pytest
 
 Auto-split execution mechanism lets you run tests at predefined concurrency and distribute the tests over the available infrastructure. Concurrency can be achieved at different levels - file, module, test suite, test, scenario, etc.
 
@@ -97,7 +91,7 @@ For more information about auto-split execution, check out the [Auto-Split Getti
 
 ### Core
 
-Auto-split YAML file (*yaml/win/cucumber_hyperexecute_autosplit_sample.yaml*) in the repo contains the following configuration:
+Auto-split YAML file in the repo contains the following configuration:
 
 ```yaml
 globalTimeout: 150
@@ -156,7 +150,7 @@ The CLI option *--config* is used for providing the custom HyperExecute YAML fil
 
 #### Execute tests using Autosplit mechanism.
 
-Run the following command on the terminal to trigger Cucumber tests on the Windows platform. 
+Run the following command on the terminal to trigger Pyetst tests on the mobile devices. 
 
 ```bash
 ./hyperexecute --config hyperExecute_autosplit.yaml

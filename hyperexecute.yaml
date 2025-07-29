@@ -1,0 +1,29 @@
+---
+version: 0.1
+runson: linux
+
+autosplit: true
+concurrency: 2
+
+framework:
+  name: appium
+  args:
+    mobileDC: false
+    #region: us
+ 
+pre:
+  - pip3 install -r requirements.txt
+  - pip install py
+
+testDiscovery:
+  type: raw
+  mode: dynamic
+  command: grep -nri 'class' tests -ir --include=\*.py | sed 's/:.*//'
+
+testRunnerCommand: pytest -v $test
+
+report: true
+partialReports:
+  location: allure-results
+  type: html
+  frameworkName: allure

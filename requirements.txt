@@ -1,4 +1,4 @@
 selenium==3.14
-pytest-selenium
-Appium-Python-Client
+pytest-selenium==3.0.0
+Appium-Python-Client==0.28
 pytest
